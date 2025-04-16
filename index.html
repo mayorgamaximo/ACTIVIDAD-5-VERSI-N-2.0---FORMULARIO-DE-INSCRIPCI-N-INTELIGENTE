@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a Club Deportivo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <header>
+            <h1>Inscripción a Club Deportivo</h1>
+            <h2>Complete el formulario para registrarse</h2>
+        </header>
+
+        <form id="inscripcionForm" class="form-section" action="submit.php" method="POST" enctype="multipart/form-data">
+            <!-- Datos Personales -->
+            <div class="form-group">
+                <label for="nombre" class="required-label">Nombre</label>
+                <div class="input-with-validation">
+                    <input type="text" id="nombre" name="nombre" required>
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="nombre-error" class="error-message">Por favor, ingrese su nombre</span>
+            </div>
+
+            <div class="form-group">
+                <label for="apellido" class="required-label">Apellido</label>
+                <div class="input-with-validation">
+                    <input type="text" id="apellido" name="apellido" required>
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="apellido-error" class="error-message">Por favor, ingrese su apellido</span>
+            </div>
+
+            <div class="form-group">
+                <label for="dni" class="required-label">DNI</label>
+                <div class="input-with-validation">
+                    <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8">
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="dni-error" class="error-message">Por favor, ingrese un DNI válido (8 dígitos)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono" class="required-label">Número de Teléfono</label>
+                <div class="input-with-validation">
+                    <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}" maxlength="10">
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="telefono-error" class="error-message">Por favor, ingrese un número de teléfono válido (10 dígitos)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required-label">Email</label>
+                <div class="input-with-validation">
+                    <input type="email" id="email" name="email" required>
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="email-error" class="error-message">Por favor, ingrese un email válido</span>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label for="deportes" class="required-label">Deportes</label>
+                <div class="input-with-validation">
+                    <select id="deportes" name="deportes[]" multiple required>
+                        <option value="handball">Handball</option>
+                        <option value="futbol">Fútbol</option>
+                        <option value="voley">Voley</option>
+                        <option value="hockey">Hockey</option>
+                        <option value="tenis">Tenis</option>
+                        <option value="basquet">Basquet</option>
+                        <option value="padel">Padel</option>
+                        <option value="futsal">Futsal</option>
+                    </select>
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="deportes-error" class="error-message">Por favor, seleccione al menos un deporte</span>
+            </div>
+
+            <div class="form-group">
+                <label for="edad" class="required-label">Edad</label>
+                <div class="input-with-validation">
+                    <input type="number" id="edad" name="edad" required min="1" max="120">
+                    <i class="fas fa-check success-icon"></i>
+                    <i class="fas fa-times error-icon"></i>
+                </div>
+                <span id="edad-error" class="error-message">Por favor, ingrese una edad válida (1-120 años)</span>
+            </div>
+
+            <div class="buttons-container">
+                <button type="reset" id="resetButton">
+                    <i class="fas fa-undo"></i> Limpiar Formulario
+                </button>
+                <button type="submit" id="submitButton" disabled>
+                    <i class="fas fa-check"></i> Enviar Inscripción
+                </button>
+            </div>
+        </form>
+
+        <footer>
+            <p> 2025 Club Deportivo. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="index.js"></script>
+</body>
+</html>
